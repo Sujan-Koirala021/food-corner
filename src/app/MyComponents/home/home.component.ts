@@ -1,4 +1,5 @@
 import { Component , OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FoodService } from 'src/app/MyServices/food/food.service';
 import { Food } from 'src/app/shared/models/food';
 
@@ -9,10 +10,16 @@ import { Food } from 'src/app/shared/models/food';
 })
 export class HomeComponent {
   foodList:Food[] = [];
-  constructor(private fs:FoodService){}
+  constructor(private fs:FoodService, private router:ActivatedRoute){}
 
   ngOnInit():void{
-    this.foodList = this.fs.getFoodInfo();
+    this.router.params.subscribe(params =>
+      {
+        if (params['searchItem'])
+        this.foodList = this.fs.getFoodInfo().filter(food => food.name.toLowerCase().includes(params['searchItem'].toLowerCase()))
+        else
+        this.foodList = this.fs.getFoodInfo();
+      })
   }
 
 }
