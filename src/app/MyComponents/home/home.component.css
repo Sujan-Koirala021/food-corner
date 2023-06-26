@@ -7,7 +7,7 @@
   }
   
   .food-list li {
-    width: 300px; /* Increased width for larger images */
+    width: 300px;
     text-align: center;
   }
   
@@ -18,7 +18,8 @@
   
   .food-list img {
     width: 100%;
-    height: auto;
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the images fill the fixed height without distortion */
     border-radius: 8px;
     transition: transform 0.3s;
   }
@@ -44,5 +45,34 @@
   
   .food-list figure:hover figcaption {
     opacity: 1;
+  }
+  
+
+  .foodText {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .foodText h4 {
+    margin-bottom: 10px;
+  }
+  
+  .foodText .food-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .foodText .food-details span {
+    flex: 1;
+  }
+  
+  .foodText .food-details span:not(:last-child) {
+    margin-right: 10px;
   }
   

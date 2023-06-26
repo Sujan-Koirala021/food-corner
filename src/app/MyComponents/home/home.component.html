@@ -1,8 +1,16 @@
 <ul class="food-list">
-  <li *ngFor="let foodName of foodList">
+  <li *ngFor="let food of foodList">
     <figure>
-      <img src="{{ foodName }}" alt="Food pictures" />
-      <figcaption>{{ foodName }}</figcaption>
+      <img class="food-image" [src]="food.imgUrl" alt="Food pictures" />
+      <figcaption>{{ food.name }}</figcaption>
     </figure>
+    <div class="foodText">
+      <h4>{{ food.name }}</h4>
+      <div class="food-details">
+        <span class="rating">⭐{{ food.rating }}</span>
+        <span class="cook-time">🕗{{ food.cookTime }}</span>
+        <span class="price">{{ food.price | currency }}</span>
+      </div>
+    </div>
   </li>
 </ul>
