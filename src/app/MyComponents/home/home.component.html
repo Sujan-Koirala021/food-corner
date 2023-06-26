@@ -1,6 +1,8 @@
-<ul>
-  <!-- Show all img using ngfor -->
+<ul class="food-list">
   <li *ngFor="let foodName of foodList">
-    <img src="{{ foodName }}" alt="Food pictures" />
+    <figure>
+      <img src="{{ foodName }}" alt="Food pictures" />
+      <figcaption>{{ foodName }}</figcaption>
+    </figure>
   </li>
 </ul>
